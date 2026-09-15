@@ -41,8 +41,4 @@ Tasks now support a Trash view. Deleting a task sets `isDeleted` instead of remo
 
 ## Building the Android APK
 
-Because `.env` is intentionally excluded from Git, add these GitHub repository secrets before running the APK workflow:
-
-`VITE_FIREBASE_API_KEY`, `VITE_FIREBASE_AUTH_DOMAIN`, `VITE_FIREBASE_DATABASE_URL`, `VITE_FIREBASE_PROJECT_ID`, `VITE_FIREBASE_STORAGE_BUCKET`, `VITE_FIREBASE_MESSAGING_SENDER_ID`, and `VITE_FIREBASE_APP_ID`.
-
-The workflow creates `.env` from those secrets before `npm run build`. Without them, the Android bundle has no Firebase configuration and the app can appear blank at startup.
+Because `.env` is intentionally excluded from Git, add one GitHub repository secret named `FIREBASE_ENV` before running the APK workflow. Its value must be the complete seven-line `.env` content. The workflow writes that secret to `.env` before `npm run build`. Without it, the Android bundle has no Firebase configuration and the app can appear blank at startup.
