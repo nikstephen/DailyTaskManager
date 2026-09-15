@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "tasks": {
+      ".read": true,
+      ".write": true
+    },
+    "notes": {
+      ".read": true,
+      ".write": true,
+      "$noteId": {
+        ".validate": "newData.hasChildren(['userId', 'title', 'content', 'createdAt', 'updatedAt'])"
+      }
+    }
+  }
+}
